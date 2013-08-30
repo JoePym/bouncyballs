@@ -27,7 +27,7 @@ class World
       y = rand(@height)
     end
 
-    @entities << Entity.new(x, y, rand(-10..10), rand(-10..10), time)
+    @entities << Entity.new(x, y, rand(0..20), rand(0..20), time)
   end
 
   def current_state

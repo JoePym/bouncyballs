@@ -9,11 +9,11 @@ class Ball
     @game = game
 
   move: (totalElapsed, frameElapsed) ->
-    [x, y] = @originalCoords
+    [x, y] = @coords
     [vx, vy] = @velocity
 
-    newX = x + (vx * totalElapsed * .01)
-    newY = y + (vy * totalElapsed * .01)
+    newX = x + (vx * frameElapsed)
+    newY = y + (vy * frameElapsed)
 
     @coords = [newX, newY]
 

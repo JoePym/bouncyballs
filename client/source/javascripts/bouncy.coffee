@@ -53,8 +53,8 @@ class Bouncy
     @move(@totalElapsed, @frameElapsed)
     @draw()
 
-  move: (elapsed) ->
-    ball.move(elapsed) for id, ball of @balls
+  move: (te, fe) ->
+    ball.move(te * .001, fe * .001) for id, ball of @balls
 
   draw: ->
     @ctx.clearRect(0 ,0, @w , @h)
