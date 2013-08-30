@@ -37,7 +37,11 @@ class Bouncy
       else
         x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
         y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
-      @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y}})
+      canvas = $('canvas:first')[0]
+      x = x - canvas.offsetLeft
+      y = y - canvas.offsetTop
+      console.log([x,y])
+      @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y, 'time': new Date().getTime()}})
 
   tick: ->
     @_tickTime = performance.now()
