@@ -14,24 +14,30 @@ class Bouncy
     @_firstTickTime = performance.now()
     @_lastTickTime = performance.now()
     @_tickInterval = setInterval (=> @tick()), 10
-
+    @setupHandlers()
 
   connect: () ->
-    socket = new WebSocket("ws://localhost:3000")
-    socket.onopen = =>
-      socket.send(JSON.stringify({command: 'connect',value: {x: 300, y: 400, height: @h, width: @w} }))
-
-    socket.onmessage = (msg) =>
+    @socket = new Socket {x: 300, y: 400, height: @h, width: @w}, (msg) =>
       data = JSON.parse(msg.data)
       t = data.time
       currentTime = new Date().getTime()
       dt = currentTime - t
+      @balls = []
       for position in data.positions
-        console.log position
         x = position.x + (dt*position.dx/100)
         y = position.y + (dt*position.dy/100)
-        console.log([position.x,position.y])
         @balls.push(new Ball(x,y,position.dx,position.dy,this))
+
+  setupHandlers: () ->
+    $("body").on "click", "canvas", (e) =>
+      e.preventDefault()
+      if e.pageX || e.pageY
+        x = e.pageX
+        y = e.pageY
+      else
+        x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
+        y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
+      @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y}})
 
   tick: ->
     @_tickTime = performance.now()

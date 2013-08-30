@@ -14,7 +14,6 @@ class Ball
     newX = x + (vx * totalElapsed * .01)
     newY = y + (vy * totalElapsed * .01)
 
-    console.log("p", newX, newY)
     @coords = [newX, newY]
 
   draw: ->
