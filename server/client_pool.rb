@@ -11,7 +11,6 @@ class ClientPool
   end
 
   def broadcast(message)
-    message = JSON.generate(message)
     @clients.each do |c|
       c.transmit(message)
     end
