@@ -1,5 +1,9 @@
 class World
   include Celluloid
+  include Celluloid::Logger
+
+  attr_reader :width
+  attr_reader :height
 
   def initialize
     @height = 10000
@@ -9,7 +13,10 @@ class World
 
     @life_check = Celluloid.every(1) do
       @entities.each do |entity|
-
+        if !entity.alive?
+          info "Removing entity #{entity}"
+          @entities.delete(entity)
+        end
       end
     end
   end
