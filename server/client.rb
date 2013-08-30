@@ -29,7 +29,7 @@ class Client
   end
 
   def spawn(value)
-    $world.spawn(value.fetch('x'), value.fetch('y'), value.fetch('time'))
+    $world.spawn(value.fetch('x'), value.fetch('y'))
     $pool.broadcast $world.current_state
   end
 
