@@ -15,7 +15,7 @@ class World
       y = rand(@height)
     end
 
-    @entities << Entity.new(x, y, rand(-20..20), rand(-20..20), time)
+    @entities << Entity.new(x, y, rand(-20..20), rand(-20..20))
   end
 
   def cleanup

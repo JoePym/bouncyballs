@@ -1,7 +1,7 @@
 class Entity
   attr_reader :x, :y
 
-  def initialize(x, y, dx, dy, time = Time.now)
+  def initialize(x, y, dx, dy)
     @id = SecureRandom.hex
 
     @x = @original_x = x
@@ -11,7 +11,7 @@ class Entity
     @dy = dy
 
     @color = "rgba(#{[rand(255), rand(255), rand(255), rand(0.5..1.0)].join(',')})"
-    @tzero = time
+    @tzero = Time.now
   end
 
   def update(t)
@@ -34,7 +34,7 @@ class Entity
 
   def alive?
     coords = (@x > 0 && @y > 0) && (@x < $world.width || @y < $world.height)
-    young = (Time.now.to_f - @tzero.to_f) < 20
+    young = (Time.now.to_f - @tzero.to_f) < 60
     coords && young
   end
 end
