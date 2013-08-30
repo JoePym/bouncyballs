@@ -1,9 +1,10 @@
 class Ball
 
-  constructor: (x, y, vx, vy, game) ->
+  constructor: (x, y, vx, vy,color, game) ->
     @originalCoords = [x, y]
     @coords = [x, y]
     @velocity = [vx, vy]
+    @color = color
     @radius = 10
     @game = game
 
@@ -22,10 +23,10 @@ class Ball
     context = @game.ctx
     context.beginPath()
     context.arc(x, y, @radius, 0, 2 * Math.PI, false)
-    context.fillStyle = 'green'
+    context.fillStyle = @color
     context.fill()
     context.lineWidth = 5
-    context.strokeStyle = '#003300'
+    context.strokeStyle = 'black'
     context.stroke()
 
 window.Ball = Ball

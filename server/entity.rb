@@ -9,8 +9,7 @@ class Entity
     @dx = dx
     @dy = dy
 
-    @color = [rand(255), rand(255), rand(255), rand(0.5..1.0)]
-
+    @color = "rgba(#{[rand(255), rand(255), rand(255), rand(0.5..1.0)].join(',')})"
     @tzero = time
   end
 
@@ -26,6 +25,7 @@ class Entity
     { id: @id,
       x: @x,
       y: @y,
+      color: @color,
       dx: @dx,
       dy: @dy }
   end

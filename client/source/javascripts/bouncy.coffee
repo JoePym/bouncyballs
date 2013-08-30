@@ -26,7 +26,7 @@ class Bouncy
       for position in data.positions
         x = position.x + (dt*position.dx/100)
         y = position.y + (dt*position.dy/100)
-        @balls.push(new Ball(x,y,position.dx,position.dy,this))
+        @balls.push(new Ball(x,y,position.dx,position.dy,position.color, this))
 
   setupHandlers: () ->
     $("body").on "click", "canvas", (e) =>
