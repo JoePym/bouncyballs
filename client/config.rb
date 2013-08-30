@@ -1,5 +1,3 @@
-page "/calibrate.html", layout: :calibrate
-
 
 ###
 # Compass
