@@ -34,7 +34,6 @@ class Client
     @width = value['width']
 
     info "#{@uuid}: position and dimensions set."
-    transmit { uuid: @uuid }
     transmit Celluloid::Actor[:world].current_state
   end
 
