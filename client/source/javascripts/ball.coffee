@@ -16,9 +16,7 @@ class Ball
   draw: ->
     @move()
     return true unless @game.inScreen(@coords[0], @coords[1])
-    console.log("HERE")
     [x,y] = @game.translate(@coords[0], @coords[1])
-    console.log([x,y])
     context = @game.ctx
     context.beginPath()
     context.arc(x, y, @radius, 0, 2 * Math.PI, false)

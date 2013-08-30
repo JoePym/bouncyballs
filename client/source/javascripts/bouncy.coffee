@@ -3,6 +3,7 @@ class Bouncy
   constructor: () ->
     @canvasDimensions = [300,300]
     @bodyDimensions = [1000,1000]
+    socket = new WebSocket("ws://localhost:3000");
     @left = 300
     @top = 400
     @balls = []
@@ -31,5 +32,4 @@ class Bouncy
     newY = y - @top
     return [newX,newY]
 
-$(document).ready ->
-  window.currentBouncy = new Bouncy
+window.Bouncy = Bouncy
