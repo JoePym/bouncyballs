@@ -23,7 +23,7 @@ class Bouncy
         window.currentBouncy.balls[p.id] = (new Ball(p.x, p.y, p.dx, p.dy, p.color, this))
 
   setupHandlers: () ->
-    $("body").on "click", "canvas", (e) =>
+    $("body").on "click touchstart", "canvas", (e) =>
       e.preventDefault()
       if e.pageX || e.pageY
         x = e.pageX

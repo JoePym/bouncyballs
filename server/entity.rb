@@ -33,6 +33,8 @@ class Entity
   end
 
   def alive?
-    (@x > 0 && @y > 0) && (@x < $world.width || @y < $world.height)
+    coords = (@x > 0 && @y > 0) && (@x < $world.width || @y < $world.height)
+    young = (Time.now.to_f - @tzero.to_f) < 20
+    coords && young
   end
 end

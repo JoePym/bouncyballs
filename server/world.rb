@@ -15,16 +15,22 @@ class World
       y = rand(@height)
     end
 
-    @entities << Entity.new(x, y, rand(0..20), rand(0..20), time)
+    @entities << Entity.new(x, y, rand(-20..20), rand(-20..20), time)
   end
 
   def cleanup
+    puts 'World running cleanup...'
+    need_to_transmit = false
+
     @entities.each do |entity|
       if !entity.alive?
+        need_to_transmit = true
         puts "Removing entity #{entity} at #{entity.x} x #{entity.y}"
         @entities.delete(entity)
       end
     end
+
+    $pool.broadcast($world.current_state) if need_to_transmit
   end
 
   def current_state
