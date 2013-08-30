@@ -1,0 +1,161 @@
+I, [2013-08-30T11:43:16.178426 #16340]  INFO -- : Starting BouncyBall server on 127.0.0.1:3000...
+E, [2013-08-30T11:43:16.178740 #16340] ERROR -- : GameServer crashed!
+NameError: uninitialized constant GameServer::ClientPool
+	server.rb:10:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:95:in `value'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/sync_proxy.rb:28:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/legacy.rb:14:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/actor_proxy.rb:25:in `_send_'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:129:in `new'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:173:in `run'
+	server.rb:40:in `<main>'
+D, [2013-08-30T11:43:16.178851 #16340] DEBUG -- : Terminating 1 actors...
+E, [2013-08-30T11:43:16.179066 #16340] ERROR -- : GameServer#finalize crashed!
+NoMethodError: undefined method `close' for nil:NilClass
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:17:in `finalize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:395:in `block in run_finalizer'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+D, [2013-08-30T11:43:16.179373 #16340] DEBUG -- : Shutdown completed cleanly
+I, [2013-08-30T11:44:50.194275 #16407]  INFO -- : Starting BouncyBall server on 127.0.0.1:3000...
+I, [2013-08-30T11:44:50.194922 #16407]  INFO -- : ClientPool created and registered.
+I, [2013-08-30T11:46:41.156642 #16407]  INFO -- : New Websocket request.
+E, [2013-08-30T11:46:41.157522 #16407] ERROR -- : Client crashed!
+ArgumentError: wrong number of arguments (1 for 2)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:12:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:95:in `value'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/sync_proxy.rb:28:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/legacy.rb:14:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/actor_proxy.rb:25:in `_send_'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:129:in `new'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:37:in `handle_websocket'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:31:in `on_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `[]'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `handle_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:125:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+E, [2013-08-30T11:46:41.157719 #16407] ERROR -- : GameServer crashed!
+ArgumentError: wrong number of arguments (1 for 2)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:12:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:95:in `value'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/sync_proxy.rb:28:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/legacy.rb:14:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/actor_proxy.rb:25:in `_send_'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:129:in `new'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:37:in `handle_websocket'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:31:in `on_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `[]'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `handle_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:125:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+I, [2013-08-30T11:46:41.158912 #16407]  INFO -- : Starting BouncyBall server on 127.0.0.1:3000...
+I, [2013-08-30T11:46:41.159421 #16407]  INFO -- : ClientPool created and registered.
+I, [2013-08-30T11:47:19.055085 #16407]  INFO -- : New Websocket request.
+E, [2013-08-30T11:47:19.055720 #16407] ERROR -- : Client crashed!
+ArgumentError: wrong number of arguments (1 for 2)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:12:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+E, [2013-08-30T11:47:19.056140 #16407] ERROR -- : GameServer crashed!
+ArgumentError: wrong number of arguments (1 for 2)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:12:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:95:in `value'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/sync_proxy.rb:28:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/legacy.rb:14:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/actor_proxy.rb:25:in `_send_'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:129:in `new'
+	server.rb:37:in `handle_websocket'
+	server.rb:31:in `on_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `[]'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `handle_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:125:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+D, [2013-08-30T11:47:19.056733 #16407] DEBUG -- : Terminating 2 actors...
+D, [2013-08-30T11:47:19.057097 #16407] DEBUG -- : Shutdown completed cleanly
+I, [2013-08-30T11:47:26.135485 #16528]  INFO -- : Starting BouncyBall server on 127.0.0.1:3000...
+I, [2013-08-30T11:47:26.136345 #16528]  INFO -- : ClientPool created and registered.
+I, [2013-08-30T11:47:32.123198 #16528]  INFO -- : New Websocket request.
+E, [2013-08-30T11:47:32.124072 #16528] ERROR -- : Client crashed!
+ArgumentError: wrong number of arguments (1 for 0)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:13:in `initialize'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:13:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+E, [2013-08-30T11:47:32.124581 #16528] ERROR -- : GameServer crashed!
+ArgumentError: wrong number of arguments (1 for 0)
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:13:in `initialize'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/client.rb:13:in `initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:67:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+	(celluloid):0:in `remote procedure call'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:95:in `value'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/sync_proxy.rb:28:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/legacy.rb:14:in `method_missing'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/proxies/actor_proxy.rb:25:in `_send_'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid.rb:129:in `new'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:37:in `handle_websocket'
+	/Users/georges.gabereau/mosaihack/bouncyballs/server/server.rb:31:in `on_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `[]'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/reel-0.3.0/lib/reel/server.rb:27:in `handle_connection'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `public_send'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:25:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/calls.rb:125:in `dispatch'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/actor.rb:326:in `block in handle_message'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks.rb:42:in `block in initialize'
+	/Users/georges.gabereau/.rvm/gems/ruby-2.0.0-p0/gems/celluloid-0.14.1/lib/celluloid/tasks/task_fiber.rb:11:in `block in create'
+I, [2013-08-30T11:47:32.125365 #16528]  INFO -- : Starting BouncyBall server on 127.0.0.1:3000...
+I, [2013-08-30T11:47:32.125862 #16528]  INFO -- : ClientPool created and registered.
+D, [2013-08-30T11:48:28.010973 #16528] DEBUG -- : Terminating 3 actors...
+D, [2013-08-30T11:48:28.012003 #16528] DEBUG -- : Shutdown completed cleanly
