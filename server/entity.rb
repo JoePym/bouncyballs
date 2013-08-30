@@ -14,7 +14,7 @@ class Entity
   end
 
   def update(t)
-    delta_t = (t.to_f - @tzero.to_f)*10 # Windows of 100ms
+    delta_t = (t.to_f - @tzero.to_f)# Windows of 100ms
     @x = @x + (delta_t * @dx)
     @y = @y + (delta_t * @dy)
   end

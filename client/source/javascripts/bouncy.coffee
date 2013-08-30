@@ -5,7 +5,7 @@ class Bouncy
     @w = $(window).width()
     @left = 0
     @top = 0
-    @balls = []
+    @balls = {}
     canvas = $('canvas:first')[0]
     canvas.width = @w
     canvas.height = @h
@@ -17,16 +17,16 @@ class Bouncy
     @setupHandlers()
 
   connect: () ->
-    @socket = new Socket {x: 300, y: 400, height: @h, width: @w}, (msg) =>
+    @socket = new Socket {x: 0, y: 0, height: @h, width: @w}, (msg) =>
       data = JSON.parse(msg.data)
       t = data.time
       currentTime = new Date().getTime()
       dt = currentTime - t
-      @balls = []
       for position in data.positions
         x = position.x + (dt*position.dx/100)
         y = position.y + (dt*position.dy/100)
-        @balls.push(new Ball(x,y,position.dx,position.dy,position.color, this))
+        window.currentBouncy.balls[position.id] = (new Ball(x,y,position.dx,position.dy,position.color, this))
+        window.currentBouncy.draw()
 
   setupHandlers: () ->
     $("body").on "click", "canvas", (e) =>
@@ -40,7 +40,8 @@ class Bouncy
       canvas = $('canvas:first')[0]
       x = x - canvas.offsetLeft
       y = y - canvas.offsetTop
-      console.log([x,y])
+      x = x - @left
+      y = y - @top
       @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y, 'time': new Date().getTime()/1000}})
 
   tick: ->
@@ -53,11 +54,11 @@ class Bouncy
     @draw()
 
   move: (elapsed) ->
-    ball.move(elapsed) for ball in @balls
+    ball.move(elapsed) for id, ball of @balls
 
   draw: ->
     @ctx.clearRect(0 ,0, @w , @h)
-    ball.draw() for ball in @balls
+    ball.draw() for id, ball of @balls
 
   inScreen: (x,y) ->
     inX = (x  < (@left + @w)) && (x  > (@left))
