@@ -19,8 +19,9 @@ class Bouncy
   connect: () ->
     @socket = new Socket {x: 0, y: 0, height: @h, width: @w}, (msg) =>
       data = JSON.parse(msg.data)
-      for p in data.positions
-        window.currentBouncy.balls[p.id] = (new Ball(p.x, p.y, p.dx, p.dy, p.color, this))
+      window.currentBouncy.balls = []
+
+      window.currentBouncy.balls = (new Ball(p.x, p.y, p.dx, p.dy, p.color, this) for p in data.positions)
 
   setupHandlers: () ->
     $("body").on "click touchstart", "canvas", (e) =>
