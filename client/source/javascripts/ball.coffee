@@ -1,22 +1,22 @@
 class Ball
 
-  constructor: (x,y,vx,vy,game) ->
-    @coords = [x,y]
-    @velocity = [vx,vy]
+  constructor: (x, y, vx, vy, game) ->
+    @coords = [x, y]
+    @velocity = [vx, vy]
     @radius = 10
     @game = game
 
-  move: ->
-    [x,y] = @coords
-    [vx,vy] = @velocity
-    newX = x + vx
-    newY = y + vy
+  move: (elapsed) ->
+    [x, y] = @coords
+    [vx, vy] = @velocity
+    newX = x + (vx * elapsed * .1)
+    newY = y + (vy * elapsed * .1)
+
     @coords = [newX, newY]
 
   draw: ->
-    @move()
     return true unless @game.inScreen(@coords[0], @coords[1])
-    [x,y] = @game.translate(@coords[0], @coords[1])
+    [x, y] = @game.translate(@coords[0], @coords[1])
     context = @game.ctx
     context.beginPath()
     context.arc(x, y, @radius, 0, 2 * Math.PI, false)

@@ -11,7 +11,8 @@ class Bouncy
     canvas.height = @h
     @ctx = canvas.getContext('2d')
     @connect()
-    @draw()
+    @_lastTickTime = performance.now()
+    @_tickInterval = setInterval (=> @tick()), 10
 
 
   connect: () ->
@@ -31,12 +32,21 @@ class Bouncy
         console.log([position.x,position.y])
         @balls.push(new Ball(x,y,position.dx,position.dy,this))
 
+  tick: ->
+    @_tickTime = performance.now()
+    @elapsed = @_tickTime - @_lastTickTime
+    @_lastTickTime = @_tickTime
+
+    @move(@elapsed)
+    console.log(@elapsed)
+    @draw()
+
+  move: (elapsed) ->
+    ball.move(elapsed) for ball in @balls
+
   draw: ->
     @ctx.clearRect(0 ,0, @w , @h)
     ball.draw() for ball in @balls
-    window.setTimeout(->
-      window.currentBouncy.draw()
-    100)
 
   inScreen: (x,y) ->
     inX = (x  < (@left + @w)) && (x  > (@left))
