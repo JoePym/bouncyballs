@@ -46,4 +46,4 @@ class window.CalibrationPage
 
   done: (event) ->
     event.preventDefault()
-    window.location = "/game.html?x=#{@x}&y=#{@y}&w=#{@width}&h=#{@height}"
+    window.location = "/index.html?x=#{@x}&y=#{@y}&w=#{@width}&h=#{@height}"

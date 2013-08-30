@@ -40,8 +40,8 @@ class Bouncy
       canvas = $('canvas:first')[0]
       x = x - canvas.offsetLeft
       y = y - canvas.offsetTop
-      x = x - @left
-      y = y - @top
+      x = x + @left
+      y = y + @top
       @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y, 'time': new Date().getTime()/1000}})
 
   tick: ->
