@@ -16,8 +16,13 @@ class GameServer < Reel::Server
 
   def initialize(host = "127.0.0.1", port = 3000)
     info "Starting BouncyBall server on #{host}:#{port}..."
+
     clientpool = ClientPool.new
     Celluloid::Actor[:clientpool] = clientpool
+
+    world = World.new
+    Celluloid::Actor[:world] = world
+
     info 'ClientPool created and registered.'
     super(host, port, &method(:on_connection))
   end
