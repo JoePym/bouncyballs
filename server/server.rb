@@ -22,7 +22,7 @@ class GameServer < Reel::Server
 
     world = World.new
     Celluloid::Actor[:world] = world
-    Celluloid::Actor[:world].spawn(rand(10000), rand(10000))
+    Celluloid::Actor[:world].spawn()
 
     info 'ClientPool created and registered.'
     super(host, port, &method(:on_connection))

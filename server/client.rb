@@ -28,13 +28,18 @@ class Client
   end
 
   def connect(value)
-    @x = value['x']
-    @y = value['y']
-    @height = value['height']
-    @width = value['width']
+    @x = value.fetch('x')
+    @y = value.fetch('y')
+    @height = value.fetch('height')
+    @width = value.fetch('width')
 
     info "#{@uuid}: position and dimensions set."
     transmit Celluloid::Actor[:world].current_state
+  end
+
+  def spawn(value)
+    Celluloid::Actor[:world].spawn(value.fetch('x'), value.fetch('y'))
+    @pool.broadcast Celluloid::Actor[:world].current_state
   end
 
   def transmit(message)

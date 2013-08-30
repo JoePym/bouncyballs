@@ -8,7 +8,12 @@ class World
     @entities = []
   end
 
-  def spawn(x, y)
+  def spawn(x = nil, y = nil)
+    if x.nil? && y.nil?
+      x = rand(@width)
+      y = rand(@height)
+    end
+
     @entities << Entity.new(x, y, rand(-10..10), rand(-10..10))
   end
 

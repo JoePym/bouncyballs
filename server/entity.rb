@@ -9,6 +9,8 @@ class Entity
     @dx = dx
     @dy = dy
 
+    @color = [rand(255), rand(255), rand(255), rand(0.5..1.0)]
+
     @tzero = Time.now
   end
 
