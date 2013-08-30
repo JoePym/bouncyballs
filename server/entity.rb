@@ -1,4 +1,7 @@
 class Entity
+
+  attr_reader :x, :y
+
   def initialize(x, y, dx, dy, time = Time.now)
     @id = SecureRandom.hex
 
@@ -12,7 +15,7 @@ class Entity
   end
 
   def update(t)
-    delta_t = (t.to_f - @tzero.to_f)# Windows of 100ms
+    delta_t = t.to_f - @tzero.to_f
     @x = @x + (delta_t * @dx)
     @y = @y + (delta_t * @dy)
   end

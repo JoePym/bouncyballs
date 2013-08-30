@@ -3,19 +3,21 @@ class ClientPool
   include Celluloid::Logger
 
   def initialize
-    @clients = []
+    @clients = {}
   end
 
   def add(client)
-    @clients << client
+    @clients[client.uuid] = client
+    info "ClientPool: #{@clients.length} clients currently connected."
   end
 
   def remove(client)
-    @clients.delete(client)
+    @clients.delete(client.uuid)
+    info "ClientPool: #{@clients.keys.length} clients currently connected."
   end
 
   def broadcast(message)
-    @clients.each do |c|
+    @clients.values.each do |c|
       c.transmit(message)
     end
   end

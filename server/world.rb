@@ -14,7 +14,7 @@ class World
     @life_check = Celluloid.every(1) do
       @entities.each do |entity|
         if !entity.alive?
-          info "Removing entity #{entity}"
+          info "Removing entity #{entity} at #{entity.x} x #{entity.y}"
           @entities.delete(entity)
         end
       end
