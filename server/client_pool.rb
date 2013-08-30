@@ -10,6 +10,10 @@ class ClientPool
     @clients << client
   end
 
+  def remove(client)
+    @clients.delete(client)
+  end
+
   def broadcast(message)
     @clients.each do |c|
       c.transmit(message)

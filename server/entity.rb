@@ -1,6 +1,4 @@
 class Entity
-  include Celluloid
-
   def initialize(x, y, dx, dy, time = Time.now)
     @id = SecureRandom.hex
 
@@ -27,15 +25,12 @@ class Entity
       y: @y,
       color: @color,
       dx: @dx,
-      dy: @dy }
+      dy: @dy,
+      color: @color }
   end
 
   def alive?
     world = Celluloid::Actor[:world]
-    (x > 0 ) && (x < world.width || y < world.height)
-  end
-
-  def destroy
-    terminate
+    (@x > 0 && @y > 0) && (@x < world.width || @y < world.height)
   end
 end
