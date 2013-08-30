@@ -41,7 +41,7 @@ class Bouncy
       x = x - canvas.offsetLeft
       y = y - canvas.offsetTop
       console.log([x,y])
-      @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y, 'time': new Date().getTime()}})
+      @socket.send({'command': 'spawn', 'value': {'x': x, 'y':y, 'time': new Date().getTime()/1000}})
 
   tick: ->
     @_tickTime = performance.now()
