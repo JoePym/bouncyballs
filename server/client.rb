@@ -38,7 +38,7 @@ class Client
   end
 
   def spawn(value)
-    Celluloid::Actor[:world].spawn(value.fetch('x'), value.fetch('y'))
+    Celluloid::Actor[:world].spawn(value.fetch('x'), value.fetch('y'), value.fetch('time'))
     @pool.broadcast Celluloid::Actor[:world].current_state
   end
 
