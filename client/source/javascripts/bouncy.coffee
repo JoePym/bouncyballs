@@ -19,14 +19,8 @@ class Bouncy
   connect: () ->
     @socket = new Socket {x: 0, y: 0, height: @h, width: @w}, (msg) =>
       data = JSON.parse(msg.data)
-      t = data.time
-      currentTime = new Date().getTime()
-      dt = currentTime - t
-      for position in data.positions
-        x = position.x + (dt*position.dx/100)
-        y = position.y + (dt*position.dy/100)
-        window.currentBouncy.balls[position.id] = (new Ball(x,y,position.dx,position.dy,position.color, this))
-        window.currentBouncy.draw()
+      for p in data.positions
+        window.currentBouncy.balls[p.id] = (new Ball(p.x, p.y, p.dx, p.dy, p.color, this))
 
   setupHandlers: () ->
     $("body").on "click", "canvas", (e) =>
