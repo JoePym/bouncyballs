@@ -1,30 +1,46 @@
 class Bouncy
 
   constructor: () ->
-    @canvasDimensions = [300,300]
-    @bodyDimensions = [1000,1000]
-    socket = new WebSocket("ws://localhost:3000");
-    @left = 300
-    @top = 400
+    @h =  $(window).height()
+    @w = $(window).width()
+    @left = 0
+    @top = 0
     @balls = []
     canvas = $('canvas:first')[0]
+    canvas.width = @w
+    canvas.height = @h
     @ctx = canvas.getContext('2d')
+    @connect()
     @draw()
 
-  pushBall: (x,y,vx,vy) ->
-    @balls.push(new Ball(x,y,vx,vy,this))
+
+  connect: () ->
+    socket = new WebSocket("ws://localhost:3000")
+    socket.onopen = =>
+      socket.send(JSON.stringify({command: 'connect',value: {x: 300, y: 400, height: @h, width: @w} }))
+
+    socket.onmessage = (msg) =>
+      data = JSON.parse(msg.data)
+      t = data.time
+      currentTime = new Date().getTime()
+      dt = currentTime - t
+      for position in data.positions
+        console.log position
+        x = position.x + (dt*position.dx/100)
+        y = position.y + (dt*position.dy/100)
+        console.log([position.x,position.y])
+        @balls.push(new Ball(x,y,position.dx,position.dy,this))
 
   draw: ->
-    @ctx.clearRect(0 ,0, 300 , 300)
-    ball.draw()  for ball in @balls
+    @ctx.clearRect(0 ,0, @w , @h)
+    ball.draw() for ball in @balls
     window.setTimeout(->
       window.currentBouncy.draw()
     100)
 
   inScreen: (x,y) ->
-    console.log [x,y]
-    inX = (x  < (@left + @canvasDimensions[0])) && (x  > (@left))
-    inY = (y  < (@top + @canvasDimensions[1])) && (y > (@top))
+    inX = (x  < (@left + @w)) && (x  > (@left))
+    inY = (y  < (@top + @h)) && (y > (@top))
     inX && inY
 
   translate: (x,y) ->

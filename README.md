@@ -8,3 +8,24 @@ Client:
 Server:
 
     { time: 1377880167.008842, positions: [{ x: 20, y: 30, dx: 4, dy 5}]}
+
+
+Booting servers
+================
+
+server:
+
+    cd server
+    ruby server.rb
+
+client:
+
+    cd client
+    bundle exec middleman server
+
+
+Then visit:
+
+    http://localhost:4567/
+
+
