@@ -38,8 +38,8 @@ class Client
   end
 
   def transmit(message)
+    @connection << JSON.generate(message)
     info "#{@uuid} send: #{message}"
-    @connection << JSON.dump(message)
   end
 
   def close
