@@ -10,6 +10,7 @@ class Client
   attr_reader :width
 
   def initialize(connection)
+    @uuid = SecureRandom.hex
     info "New websocket client: #{@uuid}"
     @pool = Celluloid::Actor[:clientpool]
     @connection = connection
@@ -26,13 +27,20 @@ class Client
     end
   end
 
-  def uuid(value)
-    @uuid = value
-    info "uuid set to #{value} for #{self}"
+  def connect(value)
+    @x = value['x']
+    @y = value['y']
+    @height = value['height']
+    @width = value['width']
+
+    info "#{@uuid}: position and dimensions set."
+    transmit { uuid: @uuid }
+    transmit Celluloid::Actor[:world].current_state
   end
 
   def transmit(message)
-    @connection << message
+    info "#{@uuid} send: #{message}"
+    @connection << JSON.dump(message)
   end
 
   def close

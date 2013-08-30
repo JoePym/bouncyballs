@@ -15,7 +15,7 @@ class World
       entity.state(time)
     end
 
-    { time: time,
+    { time: time.to_f,
       positions: positions }
   end
 end

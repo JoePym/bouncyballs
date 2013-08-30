@@ -6,13 +6,14 @@ class Entity
     @y = y
     @dx = dx
     @dy = dy
+    @t_zero = Time.now
   end
 
   def update(t)
   end
 
-  def state(t)
-    update
+  def state(t = Time.now)
+    update(t)
 
     { x: @x,
       y: @y,

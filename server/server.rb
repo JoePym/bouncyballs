@@ -22,6 +22,7 @@ class GameServer < Reel::Server
 
     world = World.new
     Celluloid::Actor[:world] = world
+    Celluloid::Actor[:world].add Entity.new(20, 30, 4, 5)
 
     info 'ClientPool created and registered.'
     super(host, port, &method(:on_connection))
