@@ -56,9 +56,7 @@ class Bouncy
     ball.draw() for id, ball of @balls
 
   inScreen: (x,y) ->
-    inX = (x  < (@left + @w)) && (x  > (@left))
-    inY = (y  < (@top + @h)) && (y > (@top))
-    inX && inY
+    x > (@left - 20) && x < (@left + @w + 20) && y > (@top - 20) && y < (@top + @h + 20)
 
   translate: (x,y) ->
     newX = x - @left
