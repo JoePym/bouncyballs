@@ -2,20 +2,27 @@ class Entity
   include Celluloid
 
   def initialize(x, y, dx, dy)
+    @id = SecureRandom.hex
+
     @x = x
     @y = y
     @dx = dx
     @dy = dy
-    @t_zero = Time.now
+
+    @tzero = Time.now
   end
 
   def update(t)
+    delta_t = (t.to_f - @tzero.to_f)*10 # Windows of 100ms
+    @x = @x + (delta_t * @dx)
+    @y = @y + (delta_t * @dy)
   end
 
   def state(t = Time.now)
     update(t)
 
-    { x: @x,
+    { id: @id,
+      x: @x,
       y: @y,
       dx: @dx,
       dy: @dy }

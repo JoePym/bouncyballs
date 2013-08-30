@@ -2,11 +2,14 @@ class World
   include Celluloid
 
   def initialize
+    @height = 10000
+    @width = 10000
+
     @entities = []
   end
 
-  def add(entity)
-    @entities << entity
+  def spawn(x, y)
+    @entities << Entity.new(x, y, rand(-10..10), rand(-10..10))
   end
 
   def current_state
@@ -15,7 +18,7 @@ class World
       entity.state(time)
     end
 
-    { time: time.to_f,
+    { time: time.to_f*1000,
       positions: positions }
   end
 end
