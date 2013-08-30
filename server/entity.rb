@@ -5,8 +5,9 @@ class Entity
   def initialize(x, y, dx, dy, time = Time.now)
     @id = SecureRandom.hex
 
-    @x = x
-    @y = y
+    @x = @original_x = x
+    @y = @original_y = y
+
     @dx = dx
     @dy = dy
 
@@ -16,8 +17,8 @@ class Entity
 
   def update(t)
     delta_t = t.to_f - @tzero.to_f
-    @x = @x + (delta_t * @dx)
-    @y = @y + (delta_t * @dy)
+    @x = @original_x + (delta_t * @dx)
+    @y = @original_y + (delta_t * @dy)
   end
 
   def state(t = Time.now)

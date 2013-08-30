@@ -3,8 +3,8 @@ class Bouncy
   constructor: () ->
     @h =  $(window).height()
     @w = $(window).width()
-    @left = 0
-    @top = 0
+    @left = getParameterByName("x") || 0
+    @top = getParameterByName("y") || 0
     @balls = {}
     canvas = $('canvas:first')[0]
     canvas.width = @w
@@ -13,7 +13,7 @@ class Bouncy
     @connect()
     @_firstTickTime = performance.now()
     @_lastTickTime = performance.now()
-    @_tickInterval = setInterval (=> @tick()), 10
+    @_tickInterval = setInterval (=> @tick()), 100
     @setupHandlers()
 
   connect: () ->
