@@ -11,6 +11,7 @@ class Bouncy
     canvas.height = @h
     @ctx = canvas.getContext('2d')
     @connect()
+    @_firstTickTime = performance.now()
     @_lastTickTime = performance.now()
     @_tickInterval = setInterval (=> @tick()), 10
 
@@ -34,11 +35,11 @@ class Bouncy
 
   tick: ->
     @_tickTime = performance.now()
-    @elapsed = @_tickTime - @_lastTickTime
+    @totalElapsed = @_tickTime - @_firstTickTime
+    @frameElapsed = @_tickTime - @_lastTickTime
     @_lastTickTime = @_tickTime
 
-    @move(@elapsed)
-    console.log(@elapsed)
+    @move(@totalElapsed, @frameElapsed)
     @draw()
 
   move: (elapsed) ->

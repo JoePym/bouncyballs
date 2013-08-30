@@ -1,17 +1,20 @@
 class Ball
 
   constructor: (x, y, vx, vy, game) ->
+    @originalCoords = [x, y]
     @coords = [x, y]
     @velocity = [vx, vy]
     @radius = 10
     @game = game
 
-  move: (elapsed) ->
-    [x, y] = @coords
+  move: (totalElapsed, frameElapsed) ->
+    [x, y] = @originalCoords
     [vx, vy] = @velocity
-    newX = x + (vx * elapsed * .1)
-    newY = y + (vy * elapsed * .1)
 
+    newX = x + (vx * totalElapsed * .01)
+    newY = y + (vy * totalElapsed * .01)
+
+    console.log("p", newX, newY)
     @coords = [newX, newY]
 
   draw: ->
