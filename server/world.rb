@@ -1,7 +1,4 @@
 class World
-  include Celluloid
-  include Celluloid::Logger
-
   attr_reader :width
   attr_reader :height
 
@@ -10,15 +7,6 @@ class World
     @width = 10000
 
     @entities = []
-
-    @life_check = Celluloid.every(1) do
-      @entities.each do |entity|
-        if !entity.alive?
-          info "Removing entity #{entity} at #{entity.x} x #{entity.y}"
-          @entities.delete(entity)
-        end
-      end
-    end
   end
 
   def spawn(x = nil, y = nil, time = Time.now)
@@ -28,6 +16,15 @@ class World
     end
 
     @entities << Entity.new(x, y, rand(0..20), rand(0..20), time)
+  end
+
+  def cleanup
+    @entities.each do |entity|
+      if !entity.alive?
+        puts "Removing entity #{entity} at #{entity.x} x #{entity.y}"
+        @entities.delete(entity)
+      end
+    end
   end
 
   def current_state

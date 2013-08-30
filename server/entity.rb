@@ -1,5 +1,4 @@
 class Entity
-
   attr_reader :x, :y
 
   def initialize(x, y, dx, dy, time = Time.now)
@@ -34,7 +33,6 @@ class Entity
   end
 
   def alive?
-    world = Celluloid::Actor[:world]
-    (@x > 0 && @y > 0) && (@x < world.width || @y < world.height)
+    (@x > 0 && @y > 0) && (@x < $world.width || @y < $world.height)
   end
 end

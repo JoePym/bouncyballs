@@ -51,5 +51,3 @@ class GameServer < Reel::Server
   end
 
 end
-
-GameServer.run

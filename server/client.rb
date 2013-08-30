@@ -1,7 +1,4 @@
 class Client
-  include Celluloid
-  include Celluloid::Logger
-
   attr_reader :uuid
   attr_reader :connection
   attr_reader :x
@@ -11,31 +8,14 @@ class Client
 
   def initialize(connection)
     @uuid = SecureRandom.hex
-    info "New websocket client: #{@uuid}"
-
-    @pool = Celluloid::Actor[:clientpool]
-    @world = Celluloid::Actor[:world]
+    puts "New websocket client: #{@uuid}"
     @connection = connection
-
-    async.open
   end
 
-  def open
-    loop do
-      begin
-        info "#{@uuid}: waiting for message..."
-        message = @connection.read # Blocks and waits here for the next message.
-        info "#{@uuid} rcvd: #{message}"
-        request = JSON.parse(message)
-        send(request.fetch('command'), request.fetch('value'))
-      rescue EOFError => e
-        # Socket died.
-        @pool.remove(self)
-        info "#{@uuid}: closing #{self}"
-        close
-        break
-      end
-    end
+  def handle(message)
+    puts "#{@uuid} rcvd: #{message}"
+    request = JSON.parse(message)
+    send(request.fetch('command'), request.fetch('value'))
   end
 
   def connect(value)
@@ -44,21 +24,23 @@ class Client
     @height = value.fetch('height')
     @width = value.fetch('width')
 
-    info "#{@uuid}: position and dimensions set."
-    transmit @world.current_state
+    puts "#{@uuid}: position and dimensions set."
+    transmit $world.current_state
   end
 
   def spawn(value)
-    @world.spawn(value.fetch('x'), value.fetch('y'), value.fetch('time'))
-    @pool.broadcast @world.current_state
+    $world.spawn(value.fetch('x'), value.fetch('y'), value.fetch('time'))
+    $pool.broadcast $world.current_state
   end
 
   def transmit(message)
-    @connection << JSON.generate(message)
-    info "#{@uuid} send: #{message}"
+    @connection.send JSON.generate(message)
+    puts "#{@uuid} send: #{message}"
   end
 
   def close
+    $pool.remove(self)
+    puts "#{@uuid}: closing #{self}"
     terminate
   end
 end
